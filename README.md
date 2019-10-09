@@ -10,18 +10,18 @@ Anschliessend soll automatisch ein Einkaufszettel generiert werden. Bei jeder Zu
 
 ## Workflow
 
-###Dateneingabe
+**Dateneingabe**
 Die einzelnen Rezepte werden mit Mengenangaben in die Webapplikation eingegeben, damit der Benutzer eine Auswahl an Rezepte hat. Der Benutzer kann dann ein Rezept anwählen und die Personenanzahl manuel eingeben.
 
 
-###Datenverarbeitung/Speicherung
+**Datenverarbeitung/Speicherung**
 Der User hat die Möglichkeit, dass die Daten direkt auf der Webseite neu angezeigt werden, in dem er auf den Button "Zutatenliste anpassen" klickt. Möchte der User, dass ein Einkaufszettel gereriert wird, muss er nun die Artikel anwählen, die er auf dem Einkaufszettel haben möchte. Anschliessend muss der Button "Einkaufslise erstellen" anwählen.
 
-###Datenausgabe
-Einkaufszettel auf Homepage:
+**Datenausgabe**
+*Einkaufszettel auf Homepage:*
 Wenn der User auf den Button "Zutatenliste anpassen" klickt, wird ihm die Zutatenliste der Personenzahl angepasst angezeigt. 
 
-Einkaufszettel generieren:
+*Einkaufszettel generieren:*
 WEnn der User auf den Button "Einkaufsliste erstellen" klickt, wird ihm ein PDF mit der Einkaufsliste ausgegeben.
 
 
