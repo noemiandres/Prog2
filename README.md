@@ -26,3 +26,9 @@ Wenn der User auf den Button "Einkaufsliste erstellen" klickt, wird ihm ein PDF 
 
 
 
+Rezept hochladen im Excel
+Angeben für wie viele Personen
+Ausgabe Rezept mit Mengenangaben
+Ausgabe als PDF (Einkaufsliste)
+Rezepte schon vorhanden wo man oben Personenzahl anpassen kann --> Flowdiagramm 2 möglichkeiten aufzeigen entweder rezept hochladen oder vorhandenes Rezept anpassen
+--> json Datei (Dateistrukturüberlegung mehrere Rezepte abspeichern)
