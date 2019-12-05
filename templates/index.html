@@ -1,0 +1,48 @@
+{% include "header.html" %}
+
+<body>
+
+<!---cards--->
+<!--Ravioli: https://www.bbc.co.uk/food/recipes/spinach_and_ricotta_21673-->
+<div class="row">
+{% for name, rezept in rezepte.items() %}
+	<div class="col-6">
+<div class="card">
+  <img src="{{ url_for('static', filename='img/apfelkuchen.jpg') }}" class="card-img-top" alt="...">
+  <div class="card-body">
+    <h5 class="card-title">{{ name }}</h5>
+    <p class="card-text">{{ rezept["Beschreibung"]}}</p>
+    <a href="apfelkuchen.html" class="btn btn-primary">Zum Rezept</a>
+  </div>
+</div>
+</div>
+{% endfor %}
+
+{% for name, rezept in rezepte2.items() %}
+	<div class="col-6">
+<div class="card">
+  <img src="{{ url_for('static', filename='img/ravioli.jpg') }}" class="card-img-top" alt="...">
+  <div class="card-body">
+    <h5 class="card-title">{{ name }}</h5>
+    <p class="card-text">{{ rezept["Beschreibung"]}}</p>
+    <a href="ravioli.html" class="btn btn-primary">Zum Rezept</a>
+  </div>
+</div>
+
+</div>
+{% endfor %}
+
+
+	
+	
+</body>
+</div>
+
+
+
+
+
+
+{% include "footer.html" %}
+
+</html>
