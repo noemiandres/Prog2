@@ -2,16 +2,36 @@
 
 <body>
 
-<div class="dropdown">
-  <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-    Anzahl Personen
-  </button>
-  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-    <a class="dropdown-item" href="#">1</a>
-    <a class="dropdown-item" href="#">2</a>
-    <a class="dropdown-item" href="#">3</a>
-  </div>
-</div>
+<form method="POST">
+	<input type="text" name="anzahl" placeholder="Anzahl Personen">
+	<button type="submit">Jetzt berechnen</button>
+</form>
+
+
+<ul>
+{% for key, value in rezepte.items() %}
+	<li>
+		{{ key }}<br />
+		{% if key == 'Zutaten' %}
+
+			{% for zutat, menge in value.items() %}
+				{{ zutat }}: {{ menge }}<br />
+			{% endfor %}
+
+		{% else %}
+			{{ value }}
+		{% endif %}
+	</li>
+{% endfor %}
+</ul>
+
+<ul>
+{%for key, value in apfelkuchen.items(): %}
+    <li>
+    {% key + ": " + str(anzahl * value[0]) + value[1] %}
+</li>
+{% endfor %}
+</ul>
 
 
 
