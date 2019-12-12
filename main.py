@@ -40,14 +40,14 @@ def home():
 def apfelkuchen():
     return render_template("apfelkuchen.html", rezepte=testdaten['Apfelkuchen'], rezepte2=testdaten2)
 
-@app.route("/apfelkuchen.html", methods=['GET', 'POST'])
+@app.route("/apfelkuchen", methods=['GET', 'POST'])
 def anzahl_personen():
     if request.method == 'POST':
         personen = request.form['anzahl']
         rueckgabe_string = personen
         return rueckgabe_string
 
-        return render_template("apfelkuchen.html")
+    return render_template("apfelkuchen.html")
 
 
 
