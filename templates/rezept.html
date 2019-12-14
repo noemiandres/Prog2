@@ -1,0 +1,36 @@
+{% include "header.html" %}
+
+<body>
+
+<h1>{{ rezept["Name"] }}</h1>
+<form method="POST">
+	<input type="text" name="anzahl" placeholder="Anzahl Personen">
+	<button type="submit">Jetzt berechnen</button>
+</form>
+
+<h3>Zutaten</h3>
+<ul>
+{% for zutat, menge in rezept["Zutaten"].items() %}
+	{% if anzahl %}
+		<li>{{zutat}}: {{ menge[0] * anzahl |int }} {{ menge[1] }}</li>
+	{% else %}
+		<li>{{zutat}}: {{ menge[0] }} {{ menge[1] }}</li>
+	{% endif %}
+	
+{% endfor %}
+</ul>
+
+<h3>Anleitung</h3>
+<ol>
+{% for anleitung in rezept["Anleitung"] %}
+	<li>{{anleitung}}</li>
+{% endfor %}
+</ol>
+
+<img src="{{ url_for('static', filename=rezept['Bild']) }}"  class="card-img-top" alt="...">
+
+
+
+</body>
+
+{% include "footer.html" %}
