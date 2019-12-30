@@ -2,6 +2,7 @@ from flask import Flask
 from flask import render_template
 from flask import request
 
+
 app = Flask("Rezepte")
 
 rezepte = {
@@ -45,9 +46,7 @@ def rezept(name):
         return render_template("rezept.html", rezept=rezepte[name], anzahl=anzahl)
 
 
-    return render_template("rezept.html", rezept=rezepte[name])
-
-
+    return render_template("rezept.html", rezept=rezepte[name]) #Angpasstes Rezept ausgeben
 
 if __name__ == "__main__":
     app.run(debug=True, port=5000)

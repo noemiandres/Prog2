@@ -22,3 +22,6 @@ Wenn der User auf den Button "Zutatenliste anpassen" klickt, wird ihm die Zutate
 
 *Einkaufszettel generieren:*<br>
 Wenn der User auf den Button "Einkaufsliste erstellen" klickt, wird ihm ein PDF mit der Einkaufsliste ausgegeben.
+
+## Flussdiagramm (Unfertig)
+![Rezappt flow diagramm](static/rezapptdiagramm.png "Rezappt flow diagram")

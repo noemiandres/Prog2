@@ -5,10 +5,15 @@
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-	<!-- Bootstrap CSS -->
-	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<!-- Bootstrap CSS -->
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
-	<title>Prog 2 - Rezept</title>
+<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+<link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.css') }}">
+<link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap-grid.min.css') }}">
+
+
+<title>Prog 2 - Rezept</title>
 
 </head>
 
@@ -20,7 +25,7 @@
 	<div class="row">
 		<div class="col-12">
 	<nav class="navbar navbar-light bg-light">
-  <a class="navbar-brand" href="#">
+  <a class="navbar-brand" href="{{ url_for('home') }}">
     <img src="{{ url_for('static', filename='img/logo.png') }}" width="35" height="35" class="d-inline-block align-top" alt="...">
     Rezappt - für wie viele Leute möchtest du heute kochen?
   </a>

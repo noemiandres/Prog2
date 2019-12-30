@@ -1,12 +1,20 @@
 {% include "header.html" %}
 
 <body>
+<br>
 
+<div class="row">
+<div class="col-6">
 <h1>{{ rezept["Name"] }}</h1>
+
+<br>
+
 <form method="POST">
 	<input type="text" name="anzahl" placeholder="Anzahl Personen">
 	<button type="submit">Jetzt berechnen</button>
 </form>
+
+<br>
 
 <h3>Zutaten</h3>
 <ul>
@@ -19,6 +27,11 @@
 	
 {% endfor %}
 </ul>
+</div>
+<div class="col-6">
+<img src="{{ url_for('static', filename=rezept['Bild']) }}"  class="card-img-top" alt="...">
+</div>
+</div>
 
 <h3>Anleitung</h3>
 <ol>
@@ -27,10 +40,9 @@
 {% endfor %}
 </ol>
 
-<img src="{{ url_for('static', filename=rezept['Bild']) }}"  class="card-img-top" alt="...">
-
-
-
+<br>
 </body>
+
+
 
 {% include "footer.html" %}
