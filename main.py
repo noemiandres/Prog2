@@ -5,6 +5,7 @@ from flask import request
 
 app = Flask("Rezepte")
 
+#Daten der Rezepte
 rezepte = {
     "Apfelkuchen": {
         "Name": "Apfelkuchen",
@@ -19,27 +20,32 @@ rezepte = {
             "Zitrone": (1, ""),
             "Zucker": (140,"g")
         },
-        "Anleitung": ("Für den schnellen Apfelkuchen zuerst den Backofen Ober- und Unterhitze auf 180 Grad vorheizen."," Danach das Eiweiss in einer Schüssel zu steifen Schnee schlagen.","In einer anderen Schüssel das Eigelb mit Zucker schaumig schlagen.", "Wasser und Zitronenschale dazugeben.","Das mit Backpulver versiebte Mehl untermischen und den Eischnee vorsichtig unterheben.", "Danach die Äpfel schälen und das Kerngehäuse entfernen und in Spalten schneiden.","Die Teig-Masse in eine gefettete Springform füllen.", " Apfelspalten auf dem Teig verteilen und mit Zimt und Zucker bestreuen.", "Den Kuchen im vorgeheizten Backofen bei 170 Grad Heissluft etwa 40 Minuten backen."," En guete!"),
+        "Anleitung": ("Für den schnellen Apfelkuchen zuerst den Backofen Ober- und Unterhitze auf 180 Grad vorheizen."," Danach das Eiweiss in einer Schüssel zu steifen Schnee schlagen.","In einer anderen Schüssel das Eigelb mit Zucker schaumig schlagen.", "Wasser und Zitronenschale dazugeben.","Das mit Backpulver versiebte Mehl untermischen und den Eischnee vorsichtig unterheben.", "Danach die Äpfel schälen und das Kerngehäuse entfernen und in Spalten schneiden.","Die Teig-Masse in eine gefettete Springform füllen.", " Apfelspalten auf dem Teig verteilen und mit Zimt und Zucker bestreuen.", "Den Kuchen im vorgeheizten Backofen bei 180 Grad etwa 40 Minuten backen."," En guete!"),
         "Bild": "img/apfelkuchen.jpg"
     },
-    "Ravioli": {
-        "Name": "Ravioli",
+    "Kartoffelstock": {
+        "Name": "Kartoffelstock",
         "Zutaten": {
-            "Eier": (2, "Stück"),
-            "Mehl": (200, "g")
+            "Kartoffeln, mehlig kochende": (300, "g"),
+            "Milch": (0.5, "dl"),
+            "Butter": (10, "g"),
+            "Muskat, Salz": ("", "wenig"),
+
+
         },
-        "Beschreibung": "Frische Ravioli ganz einfach selbst gemacht.",
-        "Anleitung": ("Zutaten mischen 10 Minuten kneten.", "10 Minuten ruhen lassen"),
-        "Bild": "img/ravioli.jpg"
+        "Beschreibung": "Frischer Kartoffelstock ganz einfach selbst gemacht.",
+        "Anleitung": ("Kartoffeln im Salzwasser offen bei mittlerer Hitze ca. 20 Min. sehr weich kochen.", "Kartoffeln durchs Passvite treiben oder mit dem Kartoffelstampfer zerstossen.","Milch und Butter unter Rühren mit der Kelle nach und nach zu den Kartoffeln geben.", "Kurz und kräftig rühren, bis die Kartoffelmasse luftig ist und locker von der Kelle fällt.", "Mit Muskatnuss und Salz würzen."),
+        "Bild": "img/kartoffelstock.png"
     }
 }
-
-@app.route("/") #URL für Startseite / Home
+#URL für Startseite / Home
+@app.route("/") 
 @app.route('/home')
 def home():
     return render_template("index.html", rezepte=rezepte)
 
-@app.route("/rezept/<name>", methods=['GET', 'POST']) #Apfelkuchenrezept Anzahl Personen anpassen
+#Rezeptseite, Anzahl Personen anpassen
+@app.route("/rezept/<name>", methods=['GET', 'POST']) 
 def rezept(name):
     if request.method == 'POST':
         anzahl = request.form['anzahl']

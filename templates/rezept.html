@@ -1,5 +1,5 @@
 {% include "header.html" %}
-
+<!--Rezeptseite erstellen:-->
 <body>
 <br>
 
@@ -9,34 +9,35 @@
 
 <br>
 
-<form method="POST">
+<!---Anzahl Personen für Rezept anpassen-->
+<form method="POST"> 
 	<input type="text" name="anzahl" placeholder="Anzahl Personen">
 	<button type="submit">Jetzt berechnen</button>
 </form>
 
 <br>
 
-<h3>Zutaten</h3>
+<h3>Zutaten</h3> 
 <ul>
-{% for zutat, menge in rezept["Zutaten"].items() %}
+{% for zutat, menge in rezept["Zutaten"].items() %} 
 	{% if anzahl %}
-		<li>{{zutat}}: {{ menge[0] * anzahl |int }} {{ menge[1] }}</li>
+		<li>{{zutat}}: {{ menge[0] * anzahl |int }} {{ menge[1] }}</li> <!--anzahl = Eingabe (Anzahl Personen), menge[1] = Mengenangabe aus Dictionary holen)---->
 	{% else %}
-		<li>{{zutat}}: {{ menge[0] }} {{ menge[1] }}</li>
+		<li>{{zutat}}: {{ menge[0] }} {{ menge[1] }}</li> <!--Falls keine Berechnung für Anzahl Personen getätigt wurde - kein POST (z.B. wenn man frisch auf das Rezept klickt) wird das Rezept für eine Person angezeigt -->
 	{% endif %}
 	
 {% endfor %}
 </ul>
 </div>
 <div class="col-6">
-<img src="{{ url_for('static', filename=rezept['Bild']) }}"  class="card-img-top" alt="...">
+<img src="{{ url_for('static', filename=rezept['Bild']) }}"  class="card-img-top" alt="..."> <!--Anzeige des Rezeptbild-->
 </div>
 </div>
 
 <h3>Anleitung</h3>
 <ol>
 {% for anleitung in rezept["Anleitung"] %}
-	<li>{{anleitung}}</li>
+	<li>{{anleitung}}</li> <!--Ausgabe Rezept-Anleitung-->
 {% endfor %}
 </ol>
 
