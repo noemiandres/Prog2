@@ -1,6 +1,8 @@
 from flask import Flask
 from flask import render_template
 from flask import request
+from datetime import datetime
+import json
 
 
 app = Flask("Rezepte")
@@ -54,6 +56,8 @@ def rezept(name):
 
     return render_template("rezept.html", rezept=rezepte[name]) #Angpasstes Rezept ausgeben
 
+#json Datei erstellen    
+app.route("/rezept/<name>", methods=['GET', 'POST']) 
 def speichern(datei, key, value):
     try:
         with open(rezepte) as open_file:
@@ -68,14 +72,14 @@ def speichern(datei, key, value):
     with open(rezepte, "w") as open_file:
         json.dump(datei_inhalt, open_file)
 
-
+app.route("/rezept/<name>", methods=['GET', 'POST']) 
 def aktivitaet_speichern(aktivitaet):
     datei_name = "aktivitaeten.json"
     zeitpunkt = datetime.now()
     speichern(datei_name, zeitpunkt, aktivitaet)
     return zeitpunkt, aktivitaet
 
-
+app.route("/rezept/<name>", methods=['GET', 'POST']) 
 def aktivitaeten_laden():
     datei_name = "aktivitaeten.json"
 
