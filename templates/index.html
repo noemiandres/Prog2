@@ -12,8 +12,8 @@
   <img src="{{ url_for('static', filename=rezept['Bild']) }}"  class="card-img-top" alt="..."> <!--Rezeptkarte Bild einfügen-->
   <div class="card-body">
     <h5 class="card-title">{{ name }}</h5> <!---Rezeptkarte Rezeptname einfügen--->
-    <p class="card-text">{{ rezept["Beschreibung"]}}</p> <!---Rezeptkarte Kurzbeschreibung einfügen--->
-    <a href="rezept/{{ name }}" class="btn btn-primary">Zum Rezept</a> 
+    <p class="card-text">{{ rezept["Beschreibung"]}}</p> <!---Rezeptkarte Kurzbeschreibung einfügen (aus Daten "rezept" Key "Beschreibung" und daraus den Value Beschreibung herausnehmen--->
+    <a href="rezept/{{ name }}" class="btn btn-primary">Zum Rezept</a> <!--Button der zum Rezept führt-->
   </div>
 </div>
 </div>

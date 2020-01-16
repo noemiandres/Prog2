@@ -21,7 +21,7 @@
 <ul>
 {% for zutat, menge in rezept["Zutaten"].items() %} 
 	{% if anzahl %}
-		<li>{{zutat}}: {{ menge[0] * anzahl |int }} {{ menge[1] }}</li> <!--anzahl = Eingabe (Anzahl Personen), menge[1] = Mengenangabe aus Dictionary holen)---->
+		<li>{{zutat}}: {{ menge[0] * anzahl |int }} {{ menge[1] }}</li> <!--menge[0] = Mengenangabe aus Dictionary holen, anzahl = Eingabe (Anzahl Personen) Berechnung: Menge aus Rezept * Anzahl Personen die man eingegeben hat--->
 	{% else %}
 		<li>{{zutat}}: {{ menge[0] }} {{ menge[1] }}</li> <!--Falls keine Berechnung für Anzahl Personen getätigt wurde - kein POST (z.B. wenn man frisch auf das Rezept klickt) wird das Rezept für eine Person angezeigt -->
 	{% endif %}
@@ -29,6 +29,9 @@
 {% endfor %}
 </ul>
 </div>
+
+<h1>{{rezept["Bemerkung"]}}</h1>
+
 <div class="col-6">
 <img src="{{ url_for('static', filename=rezept['Bild']) }}"  class="card-img-top" alt="..."> <!--Anzeige des Rezeptbild-->
 </div>
@@ -36,7 +39,7 @@
 
 <h3>Anleitung</h3>
 <ol>
-{% for anleitung in rezept["Anleitung"] %}
+{% for anleitung in rezept["Anleitung"] %} <!---richtige Anleitung aus Daten holen --> 
 	<li>{{anleitung}}</li> <!--Ausgabe Rezept-Anleitung-->
 {% endfor %}
 </ol>
